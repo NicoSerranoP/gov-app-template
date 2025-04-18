@@ -1,5 +1,5 @@
-import { Address } from "viem";
-import { ChainName, getChain } from "./utils/chains";
+import { type Address } from "viem";
+import { type ChainName, getChain } from "./utils/chains";
 
 // Contract Addresses
 export const PUB_DAO_ADDRESS = (process.env.NEXT_PUBLIC_DAO_ADDRESS ?? "") as Address;
@@ -10,6 +10,9 @@ export const PUB_DUAL_GOVERNANCE_PLUGIN_ADDRESS = (process.env.NEXT_PUBLIC_DUAL_
   "") as Address;
 export const PUB_TOKEN_VOTING_PLUGIN_ADDRESS = (process.env.NEXT_PUBLIC_TOKEN_VOTING_PLUGIN_ADDRESS ?? "") as Address;
 export const PUB_DELEGATION_CONTRACT_ADDRESS = (process.env.NEXT_PUBLIC_DELEGATION_CONTRACT_ADDRESS ?? "") as Address;
+
+// MACI VOTING
+export const PUB_MACI_VOTING_PLUGIN_ADDRESS = (process.env.NEXT_PUBLIC_MACI_VOTING_PLUGIN_ADDRESS ?? "") as Address;
 
 // TOUCAN VOTING
 export const PUB_TOUCAN_VOTING_PLUGIN_ADDRESS = (process.env.NEXT_PUBLIC_TOUCAN_VOTING_PLUGIN_ADDRESS ?? "") as Address;
@@ -22,7 +25,7 @@ export const PUB_TOKEN_L1_ADDRESS = (process.env.NEXT_PUBLIC_TOKEN_L1_ADDRESS ??
 export const PUB_TOKEN_L2_ADDRESS = (process.env.NEXT_PUBLIC_TOKEN_L2_ADDRESS ?? "") as Address;
 
 export const PUB_DELEGATION_ANNOUNCEMENTS_START_BLOCK = BigInt(
-  process.env.NEXT_PUBLIC_DELEGATION_ANNOUNCEMENTS_START_BLOCK || "0"
+  process.env.NEXT_PUBLIC_DELEGATION_ANNOUNCEMENTS_START_BLOCK ?? "0"
 );
 
 // Target chain

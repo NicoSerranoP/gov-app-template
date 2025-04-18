@@ -1,10 +1,4 @@
-import {
-  PUB_DELEGATION_CONTRACT_ADDRESS,
-  PUB_DUAL_GOVERNANCE_PLUGIN_ADDRESS,
-  PUB_TOKEN_VOTING_PLUGIN_ADDRESS,
-  PUB_TOUCAN_VOTING_PLUGIN_ADDRESS,
-  PUB_LOCK_TO_VOTE_PLUGIN_ADDRESS,
-} from "@/constants";
+import { PUB_MACI_VOTING_PLUGIN_ADDRESS } from "@/constants";
 import { IconType } from "@aragon/ods";
 
 type PluginItem = {
@@ -48,10 +42,10 @@ export const plugins: PluginItem[] = [
   //   pluginAddress: PUB_DELEGATION_CONTRACT_ADDRESS,
   // },
   {
-    id: "crosschain-voting",
-    folderName: "toucanVoting",
-    title: "Crosschain Voting",
+    id: "maci-voting",
+    folderName: "maciVoting",
+    title: "MACI Voting",
     icon: IconType.BLOCKCHAIN_BLOCKCHAIN,
-    pluginAddress: PUB_TOUCAN_VOTING_PLUGIN_ADDRESS,
+    pluginAddress: PUB_MACI_VOTING_PLUGIN_ADDRESS,
   },
 ];
