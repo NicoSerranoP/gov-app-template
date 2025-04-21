@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { uploadToIPFS } from "@/utils/ipfs";
 import { useChainId, useSwitchChain, useWaitForTransactionReceipt, useWriteContract } from "wagmi";
 import { toHex } from "viem";
-import { TokenVotingAbi } from "@/plugins/toucanVoting/artifacts/TokenVoting.sol";
+import MaciVotingArtifact from "@/plugins/maciVoting/artifacts/MaciVoting.json";
 import { useAlerts } from "@/context/Alerts";
 import WithdrawalInput from "@/components/input/withdrawal";
 import { FunctionCallForm } from "@/components/input/function-call-form";
@@ -12,7 +12,7 @@ import { type Action } from "@/utils/types";
 import { useRouter } from "next/router";
 import { Else, ElseIf, If, Then } from "@/components/if";
 import { PleaseWaitSpinner } from "@/components/please-wait";
-import { PUB_CHAIN, PUB_IPFS_API_KEY, PUB_IPFS_ENDPOINT, PUB_TOUCAN_VOTING_PLUGIN_ADDRESS } from "@/constants";
+import { PUB_CHAIN, PUB_IPFS_API_KEY, PUB_IPFS_ENDPOINT, PUB_MACI_VOTING_PLUGIN_ADDRESS } from "@/constants";
 import { ActionCard } from "@/components/actions/action";
 
 enum ActionType {
@@ -114,6 +114,7 @@ export default function Create() {
         }
     }
 
+    /*
     const proposalMetadataJsonObject = {
       title,
       summary,
@@ -125,13 +126,15 @@ export default function Create() {
     });
 
     const ipfsPin = await uploadToIPFS(ipfsClient, blob);
+    */
     if (chainId !== PUB_CHAIN.id) await switchChainAsync({ chainId: PUB_CHAIN.id });
     createProposalWrite({
       chainId: PUB_CHAIN.id,
-      abi: TokenVotingAbi,
-      address: PUB_TOUCAN_VOTING_PLUGIN_ADDRESS,
+      abi: MaciVotingArtifact.abi,
+      address: PUB_MACI_VOTING_PLUGIN_ADDRESS,
       functionName: "createProposal",
-      args: [toHex(ipfsPin), actions, BigInt(0), 0, 0, { abstain: 0n, yes: 0n, no: 0n }, false],
+      // args: _metadata, _actions, _allowFailureMap, _startDate, _endDate
+      args: [toHex("QmYwAPJzv5CZsnAzt8auVTLrLjv7iPaNGFFRu6u3kfdr7o"), actions, BigInt(0), 1740004313, 1750004313],
     });
   };
 
