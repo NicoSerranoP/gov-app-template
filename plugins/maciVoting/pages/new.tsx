@@ -134,7 +134,7 @@ export default function Create() {
       address: PUB_MACI_VOTING_PLUGIN_ADDRESS,
       functionName: "createProposal",
       // args: _metadata, _actions, _allowFailureMap, _startDate, _endDate
-      args: [toHex("QmYwAPJzv5CZsnAzt8auVTLrLjv7iPaNGFFRu6u3kfdr7o"), actions, BigInt(0), 1740004313, 1750004313],
+      args: [toHex("QmYwAPJzv5CZsnAzt8auVTLrLjv7iPaNGFFRu6u3kfdr7o"), actions, BigInt(0), 1840004313, 1850004313],
     });
   };
 
