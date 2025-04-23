@@ -1,4 +1,4 @@
-import { PUB_MACI_VOTING_PLUGIN_ADDRESS } from "@/constants";
+import { PUB_MACI_VOTING_PLUGIN_ADDRESS, PUB_TOKEN_VOTING_PLUGIN_ADDRESS } from "@/constants";
 import { IconType } from "@aragon/ods";
 
 type PluginItem = {
@@ -34,13 +34,13 @@ export const plugins: PluginItem[] = [
   //   icon: IconType.BLOCKCHAIN_BLOCK,
   //   pluginAddress: PUB_LOCK_TO_VOTE_PLUGIN_ADDRESS,
   // },
-  // {
-  //   id: "delegate-wall",
-  //   folderName: "delegateAnnouncer",
-  //   title: "Delegation",
-  //   icon: IconType.FEEDBACK,
-  //   pluginAddress: PUB_DELEGATION_CONTRACT_ADDRESS,
-  // },
+  {
+    id: "token-voting",
+    folderName: "tokenVoting",
+    title: "Token Voting",
+    icon: IconType.FEEDBACK,
+    pluginAddress: PUB_TOKEN_VOTING_PLUGIN_ADDRESS,
+  },
   {
     id: "maci-voting",
     folderName: "maciVoting",

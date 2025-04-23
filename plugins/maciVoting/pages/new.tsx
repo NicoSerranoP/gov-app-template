@@ -1,7 +1,6 @@
-import { create } from "ipfs-http-client";
 import { Button, IconType, Icon, InputText, TextAreaRichText } from "@aragon/ods";
 import React, { useEffect, useState } from "react";
-import { uploadToIPFS } from "@/utils/ipfs";
+import { uploadToPinata } from "@/utils/ipfs";
 import { useChainId, useSwitchChain, useWaitForTransactionReceipt, useWriteContract } from "wagmi";
 import { toHex } from "viem";
 import MaciVotingArtifact from "@/plugins/maciVoting/artifacts/MaciVoting.json";
@@ -12,7 +11,7 @@ import { type Action } from "@/utils/types";
 import { useRouter } from "next/router";
 import { Else, ElseIf, If, Then } from "@/components/if";
 import { PleaseWaitSpinner } from "@/components/please-wait";
-import { PUB_CHAIN, PUB_IPFS_API_KEY, PUB_IPFS_ENDPOINT, PUB_MACI_VOTING_PLUGIN_ADDRESS } from "@/constants";
+import { PUB_CHAIN, PUB_MACI_VOTING_PLUGIN_ADDRESS } from "@/constants";
 import { ActionCard } from "@/components/actions/action";
 
 enum ActionType {
@@ -20,11 +19,6 @@ enum ActionType {
   Withdrawal,
   Custom,
 }
-
-const ipfsClient = create({
-  url: PUB_IPFS_ENDPOINT,
-  headers: { "X-API-KEY": PUB_IPFS_API_KEY, Accept: "application/json" },
-});
 
 export default function Create() {
   const { push } = useRouter();
@@ -52,6 +46,7 @@ export default function Create() {
           timeout: 4 * 1000,
         });
       } else {
+        // eslint-disable-next-line no-console
         console.error(error);
         addAlert("Could not create the proposal", { type: "error" });
       }
@@ -77,7 +72,7 @@ export default function Create() {
     setTimeout(() => {
       push("#/");
     }, 1000 * 2);
-  }, [status, createTxHash, isConfirming, isConfirmed]);
+  }, [status, createTxHash, isConfirming, isConfirmed, addAlert, error, push]);
 
   const submitProposal = async () => {
     // Check metadata
@@ -114,7 +109,6 @@ export default function Create() {
         }
     }
 
-    /*
     const proposalMetadataJsonObject = {
       title,
       summary,
@@ -125,8 +119,8 @@ export default function Create() {
       type: "application/json",
     });
 
-    const ipfsPin = await uploadToIPFS(ipfsClient, blob);
-    */
+    const ipfsPin = await uploadToPinata(blob);
+
     if (chainId !== PUB_CHAIN.id) await switchChainAsync({ chainId: PUB_CHAIN.id });
     createProposalWrite({
       chainId: PUB_CHAIN.id,
@@ -134,7 +128,7 @@ export default function Create() {
       address: PUB_MACI_VOTING_PLUGIN_ADDRESS,
       functionName: "createProposal",
       // args: _metadata, _actions, _allowFailureMap, _startDate, _endDate
-      args: [toHex("QmYwAPJzv5CZsnAzt8auVTLrLjv7iPaNGFFRu6u3kfdr7o"), actions, BigInt(0), 1840004313, 1850004313],
+      args: [toHex(ipfsPin), actions, BigInt(0), 1840004313, 1850004313],
     });
   };
 
@@ -190,7 +184,7 @@ export default function Create() {
               onClick={() => {
                 changeActionType(ActionType.Signaling);
               }}
-              className={`flex cursor-pointer flex-col items-center rounded-xl border border-2 border-solid bg-neutral-0 hover:bg-neutral-50 ${
+              className={`flex cursor-pointer flex-col items-center rounded-xl border-2 border-solid bg-neutral-0 hover:bg-neutral-50 ${
                 actionType === ActionType.Signaling ? "border-primary-300" : "border-neutral-100"
               }`}
             >
@@ -205,7 +199,7 @@ export default function Create() {
             </div>
             <div
               onClick={() => changeActionType(ActionType.Withdrawal)}
-              className={`flex cursor-pointer flex-col items-center rounded-xl border border-2 border-solid bg-neutral-0 hover:bg-neutral-50 ${
+              className={`flex cursor-pointer flex-col items-center rounded-xl border-2 border-solid bg-neutral-0 hover:bg-neutral-50 ${
                 actionType === ActionType.Withdrawal ? "border-primary-300" : "border-neutral-100"
               }`}
             >
@@ -220,7 +214,7 @@ export default function Create() {
             </div>
             <div
               onClick={() => changeActionType(ActionType.Custom)}
-              className={`flex cursor-pointer flex-col items-center rounded-xl border border-2 border-solid bg-neutral-0 hover:bg-neutral-50 ${
+              className={`flex cursor-pointer flex-col items-center rounded-xl border-2 border-solid bg-neutral-0 hover:bg-neutral-50 ${
                 actionType === ActionType.Custom ? "border-primary-300" : "border-neutral-100"
               }`}
             >

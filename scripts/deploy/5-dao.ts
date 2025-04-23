@@ -10,7 +10,7 @@ import {
 import { type Address, type Hex, type Log, decodeEventLog, toHex } from "viem";
 import { deploymentPublicClient as publicClient, deploymentWalletClient as walletClient } from "../lib/util/client";
 import { deploymentAccount as account } from "../lib/util/account";
-import { uploadToIPFS } from "@/utils/ipfs";
+import { uploadToPinata } from "@/utils/ipfs";
 import { deploymentIpfsClient as ipfsClient } from "../lib/util/ipfs";
 import { ABI as DaoFactoryABI } from "../lib/artifacts/dao-factory";
 import { ABI as DaoRegistryABI } from "../lib/artifacts/dao-registry";
@@ -77,7 +77,7 @@ function pinDaoMetadata(): Promise<Hex> {
     type: "application/json",
   });
 
-  return uploadToIPFS(ipfsClient, blob)
+  return uploadToPinata(blob)
     .then((res) => toHex(res))
     .catch((err) => {
       console.warn("Warning: Could not pin the DAO metadata on IPFS");

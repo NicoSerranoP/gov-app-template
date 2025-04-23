@@ -1,14 +1,14 @@
 import { create } from "ipfs-http-client";
 import { Button, IconType, Icon, InputText, TextAreaRichText } from "@aragon/ods";
 import React, { useEffect, useState } from "react";
-import { uploadToIPFS } from "@/utils/ipfs";
+import { uploadToPinata } from "@/utils/ipfs";
 import { useWaitForTransactionReceipt, useWriteContract } from "wagmi";
 import { toHex } from "viem";
 import { TokenVotingAbi } from "@/plugins/tokenVoting/artifacts/TokenVoting.sol";
 import { useAlerts } from "@/context/Alerts";
 import WithdrawalInput from "@/components/input/withdrawal";
 import { FunctionCallForm } from "@/components/input/function-call-form";
-import { Action } from "@/utils/types";
+import { type Action } from "@/utils/types";
 import { getPlainText } from "@/utils/html";
 import { useRouter } from "next/router";
 import { Else, ElseIf, If, Then } from "@/components/if";
@@ -118,7 +118,7 @@ export default function Create() {
       type: "application/json",
     });
 
-    const ipfsPin = await uploadToIPFS(ipfsClient, blob);
+    const ipfsPin = await uploadToPinata(blob);
     createProposalWrite({
       chainId: PUB_CHAIN.id,
       abi: TokenVotingAbi,
@@ -170,10 +170,9 @@ export default function Create() {
               }`}
             >
               <Icon
-                className={
-                  "mt-2 !h-12 !w-10 p-2 " +
-                  (actionType === ActionType.Signaling ? "text-primary-400" : "text-neutral-400")
-                }
+                className={`mt-2 !h-12 !w-10 p-2 ${
+                  actionType === ActionType.Signaling ? "text-primary-400" : "text-neutral-400"
+                }`}
                 icon={IconType.INFO}
                 size="lg"
               />
@@ -186,10 +185,9 @@ export default function Create() {
               }`}
             >
               <Icon
-                className={
-                  "mt-2 !h-12 !w-10 p-2 " +
-                  (actionType === ActionType.Withdrawal ? "text-primary-400" : "text-neutral-400")
-                }
+                className={`mt-2 !h-12 !w-10 p-2 ${
+                  actionType === ActionType.Withdrawal ? "text-primary-400" : "text-neutral-400"
+                }`}
                 icon={IconType.WITHDRAW}
                 size="lg"
               />
@@ -202,9 +200,7 @@ export default function Create() {
               }`}
             >
               <Icon
-                className={
-                  "mt-2 !h-12 !w-10 p-2 " + (actionType === ActionType.Custom ? "text-primary-400" : "text-neutral-400")
-                }
+                className={`mt-2 !h-12 !w-10 p-2 ${actionType === ActionType.Custom ? "text-primary-400" : "text-neutral-400"}`}
                 icon={IconType.BLOCKCHAIN_BLOCKCHAIN}
                 size="lg"
               />
