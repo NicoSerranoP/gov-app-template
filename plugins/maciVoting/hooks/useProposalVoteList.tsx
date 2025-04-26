@@ -1,13 +1,13 @@
 import { useState, useEffect, useMemo } from "react";
 import { getAbiItem } from "viem";
-import { TokenVotingAbi } from "@/plugins/toucanVoting/artifacts/TokenVoting.sol";
+import { TokenVotingAbi } from "@/plugins/maciVoting/artifacts/TokenVoting.sol";
 import {
   Proposal,
   VoteCastEvent,
   VoteCastRelayEvent,
   VoteCastRelayResponse,
   VoteCastResponse,
-} from "@/plugins/toucanVoting/utils/types";
+} from "@/plugins/maciVoting/utils/types";
 import { usePublicClient } from "wagmi";
 import {
   PUB_CHAIN,

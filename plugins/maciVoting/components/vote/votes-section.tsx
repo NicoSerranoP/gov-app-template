@@ -1,5 +1,5 @@
 import Blockies from "react-blockies";
-import { type VoteCastEvent } from "@/plugins/toucanVoting/utils/types";
+import { type VoteCastEvent } from "@/plugins/maciVoting/utils/types";
 import { formatUnits } from "viem";
 import { AddressText } from "@/components/text/address";
 import { Card, Tag, type TagVariant } from "@aragon/ods";

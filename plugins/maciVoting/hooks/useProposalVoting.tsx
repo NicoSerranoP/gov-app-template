@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useAccount, useWriteContract, useWaitForTransactionReceipt, useReadContract } from "wagmi";
-import { TokenVotingAbi } from "@/plugins/toucanVoting/artifacts/TokenVoting.sol";
+import { TokenVotingAbi } from "@/plugins/maciVoting/artifacts/TokenVoting.sol";
 import { AlertContextProps, useAlerts } from "@/context/Alerts";
 import { useRouter } from "next/router";
 import { parseAbi, parseEther } from "viem";

@@ -377,12 +377,12 @@ export const ToucanReceiverAbi = [
     outputs: [
       {
         name: "",
-        internalType: "struct IToucanVoting.ProposalParameters",
+        internalType: "struct ImaciVoting.ProposalParameters",
         type: "tuple",
         components: [
           {
             name: "votingMode",
-            internalType: "enum IToucanVoting.VotingMode",
+            internalType: "enum ImaciVoting.VotingMode",
             type: "uint8",
           },
           { name: "supportThreshold", internalType: "uint32", type: "uint32" },
@@ -409,12 +409,12 @@ export const ToucanReceiverAbi = [
       { name: "_proposalId", internalType: "uint256", type: "uint256" },
       {
         name: "_params",
-        internalType: "struct IToucanVoting.ProposalParameters",
+        internalType: "struct ImaciVoting.ProposalParameters",
         type: "tuple",
         components: [
           {
             name: "votingMode",
-            internalType: "enum IToucanVoting.VotingMode",
+            internalType: "enum ImaciVoting.VotingMode",
             type: "uint8",
           },
           { name: "supportThreshold", internalType: "uint32", type: "uint32" },

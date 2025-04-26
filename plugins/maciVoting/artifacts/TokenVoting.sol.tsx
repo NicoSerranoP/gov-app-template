@@ -161,7 +161,7 @@ export const TokenVotingAbi = [
   {
     anonymous: false,
     inputs: [
-      { indexed: false, internalType: "enum IToucanVoting.VotingMode", name: "votingMode", type: "uint8" },
+      { indexed: false, internalType: "enum ImaciVoting.VotingMode", name: "votingMode", type: "uint8" },
       { indexed: false, internalType: "uint32", name: "supportThreshold", type: "uint32" },
       { indexed: false, internalType: "uint32", name: "minParticipation", type: "uint32" },
       { indexed: false, internalType: "uint64", name: "minDuration", type: "uint64" },
@@ -273,7 +273,7 @@ export const TokenVotingAbi = [
       { internalType: "bool", name: "executed", type: "bool" },
       {
         components: [
-          { internalType: "enum IToucanVoting.VotingMode", name: "votingMode", type: "uint8" },
+          { internalType: "enum ImaciVoting.VotingMode", name: "votingMode", type: "uint8" },
           { internalType: "uint32", name: "supportThreshold", type: "uint32" },
           { internalType: "uint32", name: "startDate", type: "uint32" },
           { internalType: "uint32", name: "endDate", type: "uint32" },
@@ -281,7 +281,7 @@ export const TokenVotingAbi = [
           { internalType: "uint32", name: "snapshotTimestamp", type: "uint32" },
           { internalType: "uint256", name: "minVotingPower", type: "uint256" },
         ],
-        internalType: "struct IToucanVoting.ProposalParameters",
+        internalType: "struct ImaciVoting.ProposalParameters",
         name: "parameters",
         type: "tuple",
       },
@@ -357,13 +357,13 @@ export const TokenVotingAbi = [
       { internalType: "contract IDAO", name: "_dao", type: "address" },
       {
         components: [
-          { internalType: "enum IToucanVoting.VotingMode", name: "votingMode", type: "uint8" },
+          { internalType: "enum ImaciVoting.VotingMode", name: "votingMode", type: "uint8" },
           { internalType: "uint32", name: "supportThreshold", type: "uint32" },
           { internalType: "uint32", name: "minParticipation", type: "uint32" },
           { internalType: "uint32", name: "minDuration", type: "uint32" },
           { internalType: "uint256", name: "minProposerVotingPower", type: "uint256" },
         ],
-        internalType: "struct IToucanVoting.VotingSettings",
+        internalType: "struct ImaciVoting.VotingSettings",
         name: "_votingSettings",
         type: "tuple",
       },
@@ -476,13 +476,13 @@ export const TokenVotingAbi = [
     inputs: [
       {
         components: [
-          { internalType: "enum IToucanVoting.VotingMode", name: "votingMode", type: "uint8" },
+          { internalType: "enum ImaciVoting.VotingMode", name: "votingMode", type: "uint8" },
           { internalType: "uint32", name: "supportThreshold", type: "uint32" },
           { internalType: "uint32", name: "minParticipation", type: "uint32" },
           { internalType: "uint32", name: "minDuration", type: "uint32" },
           { internalType: "uint256", name: "minProposerVotingPower", type: "uint256" },
         ],
-        internalType: "struct IToucanVoting.VotingSettings",
+        internalType: "struct ImaciVoting.VotingSettings",
         name: "_votingSettings",
         type: "tuple",
       },
@@ -545,7 +545,7 @@ export const TokenVotingAbi = [
   {
     inputs: [],
     name: "votingMode",
-    outputs: [{ internalType: "enum IToucanVoting.VotingMode", name: "", type: "uint8" }],
+    outputs: [{ internalType: "enum ImaciVoting.VotingMode", name: "", type: "uint8" }],
     stateMutability: "view",
     type: "function",
   },

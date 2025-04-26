@@ -1,5 +1,5 @@
 import { useAccount, useBlockNumber, useReadContract } from "wagmi";
-import { TokenVotingAbi } from "@/plugins/toucanVoting/artifacts/TokenVoting.sol";
+import { TokenVotingAbi } from "@/plugins/maciVoting/artifacts/TokenVoting.sol";
 import { useEffect } from "react";
 import {
   PUB_CHAIN,

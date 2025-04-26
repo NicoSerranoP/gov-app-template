@@ -1,6 +1,6 @@
 import { AvatarIcon, Breadcrumbs, Button, Heading, IBreadcrumbsLink, IconType, Tag, TagVariant } from "@aragon/ods";
-import { Proposal } from "@/plugins/toucanVoting/utils/types";
-import { useProposalStatus } from "@/plugins/toucanVoting/hooks/useProposalVariantStatus";
+import { Proposal } from "@/plugins/maciVoting/utils/types";
+import { useProposalStatus } from "@/plugins/maciVoting/hooks/useProposalVariantStatus";
 import dayjs from "dayjs";
 import classNames from "classnames";
 import { ReactNode } from "react";

@@ -22,8 +22,8 @@ import dayjs from "dayjs";
 import { useCallback, useLayoutEffect, useRef, useState } from "react";
 import { CrossChainMajorityVotingResult } from "./CrosschainMajorityVotingResult";
 import { readableChainName } from "@/utils/chains";
-import { useL1ProposalStage } from "@/plugins/toucanVoting/hooks/useL1ProposalStage";
-import { useL2ProposalStage } from "@/plugins/toucanVoting/hooks/useL2ProposalStage";
+import { useL1ProposalStage } from "@/plugins/maciVoting/hooks/useL1ProposalStage";
+import { useL2ProposalStage } from "@/plugins/maciVoting/hooks/useL2ProposalStage";
 
 export interface IVotingStageDetails {
   censusBlock: number;

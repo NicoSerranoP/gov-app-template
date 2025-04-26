@@ -1,4 +1,4 @@
-import { Proposal } from "@/plugins/toucanVoting/utils/types";
+import { Proposal } from "@/plugins/maciVoting/utils/types";
 import { If } from "@/components/if";
 import * as DOMPurify from "dompurify";
 import { ActionCard } from "@/components/actions/action";

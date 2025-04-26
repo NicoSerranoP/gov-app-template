@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 import { ReactNode } from "react";
 import { formatEther } from "viem";
-import { useVotingToken } from "@/plugins/toucanVoting/hooks/useVotingToken";
+import { useVotingToken } from "@/plugins/maciVoting/hooks/useVotingToken";
 import { compactNumber } from "@/utils/numbers";
 
 const PERCENT_BASE = BigInt(1e6);

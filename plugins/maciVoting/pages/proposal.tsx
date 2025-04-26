@@ -1,8 +1,8 @@
-import { type useProposal } from "@/plugins/toucanVoting/hooks/useProposal";
-import ProposalHeader from "@/plugins/toucanVoting/components/proposal/header";
+import { type useProposal } from "@/plugins/maciVoting/hooks/useProposal";
+import ProposalHeader from "@/plugins/maciVoting/components/proposal/header";
 import { PleaseWaitSpinner } from "@/components/please-wait";
-import { useProposalVoting } from "@/plugins/toucanVoting/hooks/useProposalVoting";
-import { useProposalExecute } from "@/plugins/toucanVoting/hooks/useProposalExecute";
+import { useProposalVoting } from "@/plugins/maciVoting/hooks/useProposalVoting";
+import { useProposalExecute } from "@/plugins/maciVoting/hooks/useProposalExecute";
 import { BodySection } from "@/components/proposal/proposalBodySection";
 import { ProposalAction } from "@/components/proposalAction/proposalAction";
 import { CardResources } from "@/components/proposal/cardResources";

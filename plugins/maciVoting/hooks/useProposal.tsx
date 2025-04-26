@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useBlockNumber, usePublicClient, useReadContract } from "wagmi";
 import { Hex, fromHex, getAbiItem } from "viem";
-import { TokenVotingAbi } from "@/plugins/toucanVoting/artifacts/TokenVoting.sol";
+import { TokenVotingAbi } from "@/plugins/maciVoting/artifacts/TokenVoting.sol";
 import { Action } from "@/utils/types";
-import { Proposal, ProposalMetadata, ProposalParameters, Tally } from "@/plugins/toucanVoting/utils/types";
+import { Proposal, ProposalMetadata, ProposalParameters, Tally } from "@/plugins/maciVoting/utils/types";
 import { PUB_CHAIN, PUB_TOUCAN_VOTING_PLUGIN_ADDRESS } from "@/constants";
 import { useMetadata } from "@/hooks/useMetadata";
 

@@ -1,8 +1,8 @@
-import { OFTAdapterAbi } from "@/plugins/toucanVoting/artifacts/OFTAdapter.sol";
+import { OFTAdapterAbi } from "@/plugins/maciVoting/artifacts/OFTAdapter.sol";
 import { useAccount, useReadContract, useSwitchChain, useWaitForTransactionReceipt, useWriteContract } from "wagmi";
 import { PUB_CHAIN_NAME } from "@/constants";
-import { AlertContextProps, useAlerts } from "@/context/Alerts";
-import { OFTBridgeConfig, getEid, getLzOptions, hexPadAddress } from "../utils/layer-zero";
+import { type AlertContextProps, useAlerts } from "@/context/Alerts";
+import { type OFTBridgeConfig, getEid, getLzOptions, hexPadAddress } from "../utils/layer-zero";
 import { getChain } from "@/utils/chains";
 import { useEffect } from "react";
 import { useForceL1Chain, useForceL2Chain } from "./useForceChain";

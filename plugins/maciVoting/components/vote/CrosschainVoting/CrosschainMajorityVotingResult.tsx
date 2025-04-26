@@ -1,8 +1,8 @@
 import { If } from "@/components/if";
 import { PUB_CHAIN_NAME, PUB_L2_CHAIN_NAME } from "@/constants";
-import { useL1ProposalStage } from "@/plugins/toucanVoting/hooks/useL1ProposalStage";
-import { useL2ProposalStage } from "@/plugins/toucanVoting/hooks/useL2ProposalStage";
-import { useCanVoteL1, useCanVoteL2 } from "@/plugins/toucanVoting/hooks/useUserCanVote";
+import { useL1ProposalStage } from "@/plugins/maciVoting/hooks/useL1ProposalStage";
+import { useL2ProposalStage } from "@/plugins/maciVoting/hooks/useL2ProposalStage";
+import { useCanVoteL1, useCanVoteL2 } from "@/plugins/maciVoting/hooks/useUserCanVote";
 import { ChainName, readableChainName } from "@/utils/chains";
 import { capitalizeFirstLetter } from "@/utils/text";
 import { VotingCta } from "@/utils/types";

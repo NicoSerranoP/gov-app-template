@@ -1,7 +1,7 @@
 import { useAccount, useBlockNumber, useReadContract } from "wagmi";
 import { type ReactNode, useEffect } from "react";
-import ProposalCard from "@/plugins/toucanVoting/components/proposal";
-import { TokenVotingAbi } from "@/plugins/toucanVoting/artifacts/TokenVoting.sol";
+import ProposalCard from "@/plugins/maciVoting/components/proposal";
+import { TokenVotingAbi } from "@/plugins/maciVoting/artifacts/TokenVoting.sol";
 import {
   Button,
   DataList,
@@ -12,7 +12,7 @@ import {
   TabsList,
   type DataListState,
 } from "@aragon/ods";
-import { useCanCreateProposal } from "@/plugins/toucanVoting/hooks/useCanCreateProposal";
+import { useCanCreateProposal } from "@/plugins/maciVoting/hooks/useCanCreateProposal";
 import Link from "next/link";
 import { Else, If, Then } from "@/components/if";
 import { PUB_TOUCAN_VOTING_PLUGIN_ADDRESS, PUB_CHAIN } from "@/constants";
@@ -96,7 +96,7 @@ export default function Proposals() {
         </div>
 
         <div
-          className="mx-auto flex w-full max-w-screen-xl flex-col justify-between 
+          className="mx-auto flex w-full max-w-screen-xl flex-col justify-between
         gap-5 md:flex-row md:pb-20 "
         >
           <div className="flex w-full grow flex-col gap-x-12 gap-y-6 md:w-auto md:flex-row">

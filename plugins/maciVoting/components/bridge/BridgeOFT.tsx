@@ -12,15 +12,15 @@ import {
   PUB_TOKEN_L2_ADDRESS,
 } from "@/constants";
 import { useCrossChainTransaction } from "../../hooks/useCrossChainTransactions";
-import { Address, formatEther, parseEther } from "viem";
+import { type Address, formatEther, parseEther } from "viem";
 import { Button, Card, Heading, InputNumber, Spinner, Tabs } from "@aragon/ods";
 import { Else, If, Then } from "@/components/if";
 import { SplitRow } from "./SplitRow";
 import { compactNumber } from "@/utils/numbers";
 import { useRouter } from "next/router";
 import { MessageStatus } from "@layerzerolabs/scan-client";
-import { OFTBridgeConfig, getEid, getGasForCrossChainOperation } from "../../utils/layer-zero";
-import { ChainName, readableChainName } from "@/utils/chains";
+import { type OFTBridgeConfig, getEid, getGasForCrossChainOperation } from "../../utils/layer-zero";
+import { type ChainName, readableChainName } from "@/utils/chains";
 import { useAccount } from "wagmi";
 
 const formatQuote = (quote: string): string => {
@@ -28,12 +28,12 @@ const formatQuote = (quote: string): string => {
   // for a given quote, if it's below 0.0001 ETH, simply write it as < 0.0001 ETH
   if (parsed < 0.0001) return "<0.0001 ETH";
   // else max 4 decimals
-  return "~" + parseFloat(quote).toFixed(4) + " ETH";
+  return `~${parseFloat(quote).toFixed(4)} ETH`;
 };
 
 export default function BridgeOFT() {
-  const labelToL2 = "To " + readableChainName(PUB_L2_CHAIN_NAME).split(" ")[0];
-  const labelToL1 = "To " + readableChainName(PUB_CHAIN_NAME).split(" ")[0];
+  const labelToL2 = `To ${readableChainName(PUB_L2_CHAIN_NAME).split(" ")[0]}`;
+  const labelToL1 = `To ${readableChainName(PUB_CHAIN_NAME).split(" ")[0]}`;
 
   return (
     <Card className="flex flex-col gap-y-4 p-6 shadow-neutral">

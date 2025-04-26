@@ -1,4 +1,4 @@
-import { useProposalVoting } from "@/plugins/toucanVoting/hooks/useProposalVoting";
+import { useProposalVoting } from "@/plugins/maciVoting/hooks/useProposalVoting";
 import { useRouter } from "next/router";
 import { Card } from "@aragon/ods";
 import { ProposalDataListItem } from "@aragon/ods";

@@ -1,7 +1,7 @@
 import { type Address } from "viem";
 import { useState, useEffect } from "react";
 import { useBalance, useAccount, useReadContracts } from "wagmi";
-import { TokenVotingAbi } from "@/plugins/toucanVoting/artifacts/TokenVoting.sol";
+import { TokenVotingAbi } from "@/plugins/maciVoting/artifacts/TokenVoting.sol";
 import { PUB_CHAIN, PUB_MACI_VOTING_PLUGIN_ADDRESS } from "@/constants";
 
 export function useCanCreateProposal() {

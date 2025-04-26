@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Proposal } from "@/plugins/toucanVoting/utils/types";
+import { Proposal } from "@/plugins/maciVoting/utils/types";
 import { ProposalStatus } from "@aragon/ods";
 import dayjs from "dayjs";
 
