@@ -3,19 +3,23 @@ import ProposalCreate from "./pages/new";
 import ProposalList from "./pages/proposal-list";
 import ProposalDetail from "./pages/proposal";
 import { useUrl } from "@/hooks/useUrl";
+import type { ReactNode } from "react";
+import { MaciProvider } from "./contexts/MaciContext";
 
 export default function PluginPage() {
   // Select the inner pages to display depending on the URL hash
   const { hash } = useUrl();
+  let content: ReactNode;
 
-  if (!hash || hash === "#/") return <ProposalList />;
-  else if (hash === "#/new") return <ProposalCreate />;
+  if (!hash || hash === "#/") content = <ProposalList />;
+  else if (hash === "#/new") content = <ProposalCreate />;
   else if (hash.startsWith("#/proposals/")) {
     const id = hash.replace("#/proposals/", "");
 
-    return <ProposalDetail id={id} />;
+    content = <ProposalDetail id={id} />;
+  } else {
+    // Default not found page
+    content = <NotFound />;
   }
-
-  // Default not found page
-  return <NotFound />;
+  return <MaciProvider>{content}</MaciProvider>;
 }
